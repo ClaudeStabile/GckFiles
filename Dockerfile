@@ -36,6 +36,7 @@ RUN wget https://raw.githubusercontent.com/fusionpbx/fusionpbx-install.sh/master
 RUN wget -O - https://raw.githubusercontent.com/fusionpbx/fusionpbx-install.sh/master/debian/pre-install.sh | sh;
 # Set Free-Solutions Docker password & copy config files & install config
 RUN sed -i -e 's/random/FS_OS2610/g' /usr/src/fusionpbx-install.sh/debian/resources/config.sh
+RUN sed -i -e 's/ip_address/homeswitch.free-solutions.org/g' /usr/src/fusionpbx-install.sh/debian/resources/config.sh
 RUN sed -i -e '8iswitch_package_all=true'  /usr/src/fusionpbx-install.sh/debian/resources/config.sh 
 #RUN cp /data/DISTRIBS/FreeSwitchConfig/install.sh /usr/src/fusionpbx-install.sh/debian/install.sh
 
